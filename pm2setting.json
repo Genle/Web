@@ -1,0 +1,10 @@
+{
+   "apps":[{
+    "name": "assignment 2",
+    "script": "./app.js",
+    "watch" : true,
+    "env": {
+        "NODE_ENV": "development"
+    }
+   }]
+}
