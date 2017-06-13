@@ -1,7 +1,7 @@
 <html>
     <head>
         <title></title>
-        <link rel="stylesheet" href="static/css/custom.css">
+        <link rel="stylesheet" href="/static/css/custom.css">
     </head>
     <body>
         <header>
