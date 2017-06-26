@@ -24,6 +24,10 @@
         res.render('about');
     });
 
+    app.get('/events', (req, res) => {
+        res.sendFile(__dirname + '/views/events.html');
+    })
+
     let port = 9876; //process.env.PORT ||
 
     app.listen(port, () => {

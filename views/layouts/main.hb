@@ -9,7 +9,6 @@
             {{test}}
             {{mid}}
             {{> navbar}}
-
         </header>
         {{{body}}}
         <footer>
