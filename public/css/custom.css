@@ -39,9 +39,53 @@ body {
     background-color: #4CAF50;
 }
 
+footer ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    text-align: center;
+
+}
+
+
+footer ul > li {
+    display: inline-block;
+    
+
+}
+
+footer ul > li > a {
+    color: white;
+    padding-right: 16px;
+    padding-left: 16px;
+    text-decoration: none;
+}
+
+
+.footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    background-color: #333;
+}
+
+
 
 @media screen and (max-width: 600px) {
     .topbar ul > li, .topbar ul > li.right{
         float: none;
     }
+
+    footer ul > li {
+        display: block;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .footer {
+        padding: 0;
+    }
+   
 }
