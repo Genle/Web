@@ -1,6 +1,6 @@
 /*app2 assignment web programming custom css */
 body {
-    color: red !important;
+    /*color: red !important;*/
     margin: 0;
 
 }
@@ -70,6 +70,57 @@ footer ul > li > a {
     left: 0;
     padding: 1rem;
     background-color: #333;
+}
+
+#treeRender .root{
+    text-decoration: none;
+    
+}
+
+.root {
+    text-align: center;
+    text-decoration: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 5px;
+    padding-left: 5px;
+    width: 100px;
+    border: 1px solid #141B41;
+    border-radius: 50px;
+    background: #141B41;
+    color: white;
+}
+
+.hasChild {
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom:5px;
+    text-decoration: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    /*padding-right: 5px;
+    padding-left: 5px;*/
+    width: 100px;
+    border: 1px solid #306BAC;
+    border-radius: 50px;
+    background: #306BAC;
+    color: white;
+}
+
+.child {
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom:5px;
+    text-decoration: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    /*padding-right: 5px;*/
+    /*padding-left: 5px;*/
+    width: 100px;
+    border: 1px solid #918EF4;
+    /*border-radius: 50px;*/
+    background: #918EF4;
+    color: white;
 }
 
 
