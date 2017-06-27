@@ -57,6 +57,8 @@ footer ul > li {
 
 footer ul > li > a {
     color: white;
+    padding-top: 14px;
+    padding-bottom: 14px;
     padding-right: 16px;
     padding-left: 16px;
     text-decoration: none;
