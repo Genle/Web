@@ -32,9 +32,10 @@ body {
     text-decoration: none;
 }
 
-.topbar ul > li > a:hover:not(.active){
+.topbar ul > li > a:hover:not(.active) {
     background-color: #111;
 }
+
 .topbar ul > li > a.active {
     background-color: #4CAF50;
 }
@@ -48,10 +49,8 @@ footer ul {
 
 }
 
-
 footer ul > li {
     display: inline-block;
-    
 
 }
 
@@ -62,7 +61,6 @@ footer ul > li > a {
     text-decoration: none;
 }
 
-
 .footer {
     position: absolute;
     right: 0;
@@ -72,9 +70,9 @@ footer ul > li > a {
     background-color: #333;
 }
 
-#treeRender .root{
+#treeRender .root {
     text-decoration: none;
-    
+
 }
 
 .root {
@@ -94,7 +92,7 @@ footer ul > li > a {
 .hasChild {
     text-align: center;
     margin-top: 5px;
-    margin-bottom:5px;
+    margin-bottom: 5px;
     text-decoration: none;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -110,7 +108,7 @@ footer ul > li > a {
 .child {
     text-align: center;
     margin-top: 5px;
-    margin-bottom:5px;
+    margin-bottom: 5px;
     text-decoration: none;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -123,10 +121,8 @@ footer ul > li > a {
     color: white;
 }
 
-
-
 @media screen and (max-width: 600px) {
-    .topbar ul > li, .topbar ul > li.right{
+    .topbar ul > li, .topbar ul > li.right {
         float: none;
     }
 
@@ -135,8 +131,9 @@ footer ul > li > a {
         padding-top: 10px;
         padding-bottom: 10px;
     }
+
     .footer {
         padding: 0;
     }
-   
+
 }
