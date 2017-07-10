@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>Static file</title>
+    </head>
+    <body>
+        <h4>Index static</h4>
+        <ul id="user">
+
+        </ul>
+
+        <script>
+            (function(){
+                let xmlhttp = new XMLHttpRequest();
+                xmlhttp.addEventListener("load", (rep)=>{
+                    let data = JSON.parse(rep.target.response);
+
+                    for (dt in data){
+                        let node =document.createElement("LI");
+                        let node2 =document.createElement("LI");
+                        let textNode1 =document.createTextNode("username: " + data[dt].username);
+                        let textNode2 =document.createTextNode("password: " + data[dt].password);
+                        node.appendChild(textNode1);
+                        node2.appendChild(textNode2);
+                        document.getElementById("user").appendChild(node);
+                        document.getElementById("user").appendChild(node2);
+                    }
+                });
+                xmlhttp.open("GET", "http://localhost:9876/ingredient");
+                console.log("start");
+                xmlhttp.send();
+            }());
+        
+        </script>
+    </body>
+</html>

@@ -2,7 +2,12 @@
 body {
     /*color: red !important;*/
     margin: 0;
-
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+main {
+    flex: 1 0 auto;
 }
 
 .topbar ul {
@@ -123,7 +128,15 @@ footer ul > li > a {
     color: white;
 }
 
+/*login part*/
+.login-form{
+    margin-top: 10%;
+}
 
+/*signup part*/
+.signup-form {
+    margin-top:7%;
+}
 
 @media screen and (max-width: 600px) {
     .topbar ul > li, .topbar ul > li.right{
