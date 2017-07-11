@@ -13,7 +13,7 @@
 <nav>
     <div class="nav-wrapper orange lighten-1">
         <ul id="nav-mobile" class="left hide-on-med-and-down">
-            <li><a href="#">Pizza</a></li>
+            <li><a href="/">Pizza</a></li>
             <li><a href="#">Deals</a></li>
             <li><a href="#">Re-Order</a></li>
             <li><a href="#">New Order</a></li>

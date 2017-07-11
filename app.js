@@ -64,17 +64,33 @@
     app.post('/api/create/user', (req, res) => {
         console.log("email of body: ", req.body.email);
         console.log("email of password: ", req.body.password);
-        let message = db.createUser(req.body.email, req.body.password);
-        console.log(message);
-        res.send({
-            message: message
-        });
+        let saveUser = db.createUser(req.body.email, req.body.password);
+        console.log(saveUser);
+        saveUser.then(
+            function (message) {
+                console.log("Inside then");
+                res.send(message);
+            }
+        )
+            .catch(
+                function (err) {
+                    console.log("Inside catch");
+                    res.send(err);
+                }
+            )
+
     });
 
     app.post('/api/login', (req, res) => {
-        let message = db.checkLoginInfo(req.body.email, req.body.password);
-        res.send({
-            message: "OK"
+        let login = db.checkLoginInfo(req.body.email, req.body.password);
+
+        login.then(
+            function (message) {
+
+                res.send(message);
+            }
+        ).catch(function (err) {
+            res.send(err);
         })
 
     });

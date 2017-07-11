@@ -15,7 +15,7 @@
                 </div>
             </div>
             <div class="row">
-                <input class="btn col s12 m12" type="submit" name="login" value="Login">
+                <input class="btn col s12 m12 red darken-2" type="submit" name="login" value="Login">
             </div>
         </form>
     </div>
@@ -43,13 +43,11 @@
 
 
     let params = `email=${email}&password=${pass}`;
-    console.log("params: ",params);
     let ajax = new XMLHttpRequest(); 
     ajax.onreadystatechange = function () {
     if(ajax.readyState === XMLHttpRequest.DONE && ajax.status === 200) {
-            console.log(ajax.responseText);
             data = JSON.parse(ajax.responseText);
-            console.log(data)
+        console.log(data);
             if (data.message == "OK"){
                 window.location.replace('http://localhost:9876/');
             }

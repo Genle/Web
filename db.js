@@ -31,34 +31,40 @@ function getUserInfo() {
 
 exports.createUser = (email, password) => {
 
-	let user = new User({
-		email: email,
-		password: password
-	});
-	user.save(function(err, object) {
-		if (err) {
-			console.log("err: ", message);
-			return err;
-		}
-		console.log(object);
-		return object;
+    return new Promise((resolve, reject) => {
+        let user = new User({
+            email: email,
+            password: password
+        });
+
+        user.save((err) => {
+            if (err) {
+                reject(err);
+            }
+            resolve({message: "User saved"});
+        });
+
 	});
 
 }
 exports.checkLoginInfo = (email, password) => {
-	console.log("info login", email, password);
-	User.findOne({
-		"email": email,
-		"password": password
-	}, function(err, User) {
-		if (err) {
-			return err;
-		}
+    return new Promise((resolve, reject) => {
+            User.findOne({
+                "email": email,
+                "password": password
+            }, function (err, User) {
+                if (err) {
+                    reject(err);
+                }
 
-		if (User) {
-			return User;
-		} else {
-			return "No User found";
-		}
-	});
+                if (User) {
+                    if (User.email == email && User.password) {
+                        resolve({message: "OK"});
+                    }
+                } else {
+                    resolve({message: "user not found"});
+                }
+            })
+        }
+    )
 }

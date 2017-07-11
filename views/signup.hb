@@ -21,7 +21,7 @@
                 </div>
             </div>
             <div class="row">
-                <input type="submit" name="signup" class="btn col s12 m12" id="signup-btn" value="Signup">
+                <input type="submit" name="signup" class="btn red darken-2 col s12 m12" id="signup-btn" value="Signup">
             </div>
         </form>
     </div>
@@ -51,11 +51,10 @@ function valite(){
     }
 
     let params = `email=${email}&password=${pass}`;
-    console.log("params: ",params);
     let ajax = new XMLHttpRequest(); 
     ajax.onreadystatechange = function () {
     if(ajax.readyState === XMLHttpRequest.DONE && ajax.status === 200) {
-            console.log(ajax.responseText);
+        console.log(JSON.parse(ajax.responseText));
             form.reset();
         }
     };
