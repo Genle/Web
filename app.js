@@ -3,6 +3,9 @@
     let handlebar = require('express-handlebars');
     let helpers = require('./lib/helpers');
     let app = express();
+    let db = require("./db");
+
+   
 
     app.use('/static', express.static('public')); 
     app.engine('.hb', handlebar({defaultLayout: 'main',
@@ -14,10 +17,8 @@
 
 
 
-    //endpoint
-
     app.get('/', (req, res) => {
-        res.render('home');
+        res.render('pizza');
     });
 
     app.get('/about', (req,res) => {
@@ -26,7 +27,42 @@
 
     app.get('/events', (req, res) => {
         res.sendFile(__dirname + '/views/events.html');
+    });
+
+    app.get('/pizza', (req,res) => {
+
+    });
+
+    app.get('/deals', (req,res)=>{
+
+    });
+
+    app.get('/re-order', (req,res) => {
+
+    });
+
+    app.get('/new-order', (req,res) => {
+
+    });
+
+    app.get('/signup', (req,res)=>{
+        res.render('signup');
+    });
+
+    app.get('/login', (req,res)=>{
+        res.render('login');
+    });
+
+    app.get('/api/create/user', (req, res)=>{
+
     })
+
+    app.get('/ingredient', (req, res) => {
+        console.log("hello");
+        console.log(users);
+        // res.send(users);
+     
+    });
 
     let port = 9876; //process.env.PORT ||
 
