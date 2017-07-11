@@ -11,6 +11,9 @@ function treeRender () {
 function buildTree () {
    this.tree += "<ul>"
     var allElements = document.getElementsByTagName('*');
+    if (allElements[0].hasChildNodes && allElements[0].children.length>0) {
+         this.tree += '<li class="root" >' + allElements[0].localName + "</li>";
+    }
     recursive(allElements[0],this.tree);
     this.tree += "</ul>";
     return tree;
@@ -20,9 +23,7 @@ function buildTree () {
 
 function recursive (htmlElement, tree) {
     if (htmlElement.hasChildNodes && htmlElement.children.length > 0){
-        if(htmlElement.localName == 'html') {
-             this.tree += '<li class="root" >' + htmlElement.localName + "</li>";
-        }else{
+        if(htmlElement.localName != 'html') {
              this.tree += '<li class="hasChild">' + htmlElement.localName + "</li>";
         }
         this.tree += "<ul>";

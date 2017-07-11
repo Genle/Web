@@ -138,6 +138,10 @@ footer ul > li > a {
     margin-top:7%;
 }
 
+.pizza{
+    margin-top:2%;
+}
+
 @media screen and (max-width: 600px) {
     .topbar ul > li, .topbar ul > li.right{
         float: none;

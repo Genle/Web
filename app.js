@@ -1,18 +1,26 @@
-(function () {
+(function() {
     let express = require('express');
     let handlebar = require('express-handlebars');
     let helpers = require('./lib/helpers');
+    let bodyParser = require('body-parser');
     let app = express();
     let db = require("./db");
 
-   
+    app.use(bodyParser.json()); // support json encoded bodies
+    app.use(bodyParser.urlencoded({
+        extended: true
+    })); // support encoded bodies
 
-    app.use('/static', express.static('public')); 
-    app.engine('.hb', handlebar({defaultLayout: 'main',
-                                extname: '.hb',
-                                layoutsDir:__dirname + '/views/layouts',
-                                partialsDir:__dirname + '/views/partials',
-                                helpers: helpers }));
+
+
+    app.use('/static', express.static('public'));
+    app.engine('.hb', handlebar({
+        defaultLayout: 'main',
+        extname: '.hb',
+        layoutsDir: __dirname + '/views/layouts',
+        partialsDir: __dirname + '/views/partials',
+        helpers: helpers
+    }));
     app.set('view engine', '.hb');
 
 
@@ -21,7 +29,7 @@
         res.render('pizza');
     });
 
-    app.get('/about', (req,res) => {
+    app.get('/about', (req, res) => {
         res.render('about');
     });
 
@@ -29,39 +37,53 @@
         res.sendFile(__dirname + '/views/events.html');
     });
 
-    app.get('/pizza', (req,res) => {
+    app.get('/pizza', (req, res) => {
 
     });
 
-    app.get('/deals', (req,res)=>{
+    app.get('/deals', (req, res) => {
 
     });
 
-    app.get('/re-order', (req,res) => {
+    app.get('/re-order', (req, res) => {
 
     });
 
-    app.get('/new-order', (req,res) => {
+    app.get('/new-order', (req, res) => {
 
     });
 
-    app.get('/signup', (req,res)=>{
+    app.get('/signup', (req, res) => {
         res.render('signup');
     });
 
-    app.get('/login', (req,res)=>{
+    app.get('/login', (req, res) => {
         res.render('login');
     });
 
-    app.get('/api/create/user', (req, res)=>{
+    app.post('/api/create/user', (req, res) => {
+        console.log("email of body: ", req.body.email);
+        console.log("email of password: ", req.body.password);
+        let message = db.createUser(req.body.email, req.body.password);
+        console.log(message);
+        res.send({
+            message: message
+        });
+    });
 
-    })
+    app.post('/api/login', (req, res) => {
+        let message = db.checkLoginInfo(req.body.email, req.body.password);
+        res.send({
+            message: "OK"
+        })
+
+    });
 
     app.get('/ingredient', (req, res) => {
         console.log("hello");
         console.log(users);
         // res.send(users);
-     
+
     });
 
     let port = 9876; //process.env.PORT ||
@@ -70,4 +92,4 @@
         console.log("App is listening to port 9876");
     });
 
-} () )
+}())
