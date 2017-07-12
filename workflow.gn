@@ -1,0 +1,39 @@
+{
+  "Todo":{
+
+    "login":{
+      "frontend": "done",
+      "backend": "almostDone"
+    },
+    "signup":{
+      "frontend": "done",
+      "backend": ["almostDone", "password encryption"]
+    },
+    "pizzas":{
+      "frontend":"done",
+      "backend": ["almostDone","database model", "create pizza"]
+    },
+    "deals":{
+      "frontend":"done",
+      "backend": ["almostDone","database model"]
+    },
+    "order":{
+      "frontend":"done",
+      "backend": ["not started","database model"]
+    },
+    "new order":{
+      "frontend":"done",
+      "backend": ["not started","database model", "create pizza"]
+    },
+    "Database model":"not started",
+    "micro service": "not started"
+  },
+
+  "database design":{
+    "users":{
+      "email":"String",
+      "password": "hashPassword"
+    }
+
+  }
+}

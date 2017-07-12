@@ -1,10 +1,11 @@
 (function() {
-    let express = require('express');
-    let handlebar = require('express-handlebars');
-    let helpers = require('./lib/helpers');
-    let bodyParser = require('body-parser');
-    let app = express();
-    let db = require("./db");
+    const express = require('express');
+    const handlebar = require('express-handlebars');
+    const helpers = require('./lib/helpers');
+    const bodyParser = require('body-parser');
+    const bcrypt = require('bcrypt');
+    const app = express();
+    const db = require("./db");
 
     app.use(bodyParser.json()); // support json encoded bodies
     app.use(bodyParser.urlencoded({
@@ -61,26 +62,36 @@
     app.post('/api/create/user', (req, res) => {
         console.log("email of body: ", req.body.email);
         console.log("email of password: ", req.body.password);
-        let saveUser = db.createUser(req.body.email, req.body.password);
-        console.log(saveUser);
-        saveUser.then(
-            function (message) {
-                console.log("Inside then");
-                res.send(message);
-            }
-        )
-            .catch(
+
+        bcrypt.hash(req.body.password, 10, function(err, hash) {
+            // Store hash in database
+            console.log(hash);
+            let saveUser = db.createUser(req.body.email, hash );
+            saveUser.then(
+                function (message) {
+                    console.log("Inside then");
+                    res.send(message);
+                }
+            ).catch(
                 function (err) {
                     console.log("Inside catch");
                     res.send(err);
                 }
             )
+        });
 
     });
 
     app.post('/api/login', (req, res) => {
         let login = db.checkLoginInfo(req.body.email, req.body.password);
 
+        bcrypt.compare(req.body.password, hash, function(err, res) {
+            if(res) {
+                // Passwords match
+            } else {
+                // Passwords don't match
+            }
+        })
         login.then(
             function (message) {
 
@@ -113,10 +124,10 @@
     });
 
     app.get('/pizzas', (req,res)=>{
-        let desc = "Champignon Tomatoe Cheese anana";
+        let desc = "Champignon Peperonni Cheese anana";
         let newPizza = {
-            url: "https://cdn.pixabay.com/photo/2017/06/07/10/53/pizza-2380025_960_720.jpg",
-            title: "Pizza Tom",
+            url: "https://cdn.pixabay.com/photo/2016/04/09/09/22/pizza-1317699_960_720.jpg",
+            title: "Pizza Slice",
             description: desc.split(" "), //not yet found
             price: 10,
             type: 0

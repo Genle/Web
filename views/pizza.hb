@@ -107,17 +107,28 @@
 <script>
     function addDeals (deals) {
         let container = document.getElementById("content");
+        let outterDiv = document.createElement('div');
+        outterDiv.className = 'row';
 
         for(let i=0; i<deals.length; i++){
             let elem = createDealInfo(deals[i]);
-            container.appendChild(elem);
+            if( i%3 == 0 && i!=0){
+                container.appendChild(outterDiv);
+                outterDiv = document.createElement('div');
+                outterDiv.className = 'row';
+                outterDiv.appendChild(elem);
+
+            }else{
+                outterDiv.appendChild(elem);
+
+            }
+
         }
+
+        container.appendChild(outterDiv);
     }
 
     function createDealInfo (deal) {
-
-        let outterDiv = document.createElement('div');
-        outterDiv.className = 'row';
 
         let span = document.createElement('span');
         span.innerHTML = deal.price;
@@ -125,7 +136,7 @@
 
         let h5 = document.createElement('h5');
         h5.className = 'center-align';
-        h5.innerHTML = 'test ';
+        h5.innerHTML = deal.title+ " ";
 //       h5.innerHTML = deal.title;
 
         h5.appendChild(span);
@@ -159,9 +170,14 @@
         divMain.appendChild(divFirstRow);
         divMain.appendChild(divSecondRow);
 
-        outterDiv.appendChild(divMain);
+        let button = document.createElement('button');
+        button.className = "btn red darken-2 col s12 m12";
+        button.innerHTML = "Order";
+        divMain.appendChild(button);
 
-        return outterDiv;
+//        outterDiv.appendChild(divMain);
+
+        return divMain;
     }
 
 
