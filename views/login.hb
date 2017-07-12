@@ -1,5 +1,10 @@
 <div class="login-form">
     <div class="row">
+        <div class="col s12 m4 offset-m4">
+            <span id="error-message"></span>
+        </div>
+    </div>
+    <div class="row">
         <h5 class="center-align">Login to your account</h5>
         <form id="login" class="col s12 m4 offset-m4" onsubmit="return(valite())">
             <div class="row">
@@ -27,9 +32,11 @@
     function valite(){
     let form = document.getElementById('login');
     let email = form.email.value;
-    let emailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
+    let emailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
     if( email == "" || !emailFormat){
         // write message in message space
+        form.email.focus();
+        form.reset();
         return false;
     }
 

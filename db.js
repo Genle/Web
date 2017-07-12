@@ -13,14 +13,25 @@ let db = mongoose.connection;
 //Bind connection to error event
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
-let schema = mongoose.Schema;
+let Schema = mongoose.Schema;
 
-let user = new schema({
+let user = new Schema({
 	email: String,
 	password: String
 });
 
+let pizza = new Schema({
+    url: String,
+    title: String,
+    description: [],
+    price: Number,
+    type: Number
+
+});
+
+
 let User = mongoose.model('User', user);
+let Pizza = mongoose.model('Pizza', pizza);
 
 function getUserInfo() {
 	UserModel.findOne(function(err, user) {
@@ -28,6 +39,47 @@ function getUserInfo() {
 	})
 }
 
+
+exports.createPizza = (pizza) => {
+    return new Promise((resolve,reject)=>{
+        let newPizza = new Pizza({
+            url: pizza.url,
+            title: pizza.title,
+            description:pizza.description,
+            price:pizza.price,
+            type:pizza.type
+        });
+
+        newPizza.save((err)=>{
+            if(err){
+                reject(err);
+            }
+            resolve({message:"Pizza saved"});
+        });
+    });
+};
+
+exports.getPreMadePizza = () => {
+    return new Promise((resolve,reject)=>{
+        Pizza.find({type:0}, (err,pizzas)=>{
+            if(err){
+                reject({message:"Error"});
+            }
+            resolve(pizzas);
+        });
+    });
+};
+
+exports.getCustomPizza = () => {
+    return new Promise((resolve,reject)=>{
+        Pizza.find({type:1}, (err,pizzas)=>{
+            if(err){
+                reject(err);
+            }
+            resolve(pizzas);
+        });
+    });
+};
 
 exports.createUser = (email, password) => {
 
@@ -46,7 +98,7 @@ exports.createUser = (email, password) => {
 
 	});
 
-}
+};
 exports.checkLoginInfo = (email, password) => {
     return new Promise((resolve, reject) => {
             User.findOne({
@@ -58,13 +110,13 @@ exports.checkLoginInfo = (email, password) => {
                 }
 
                 if (User) {
-                    if (User.email == email && User.password) {
+                    if (User.email == str(email) && User.password) {
                         resolve({message: "OK"});
                     }
                 } else {
                     resolve({message: "user not found"});
                 }
-            })
+            });
         }
-    )
-}
+    );
+};
