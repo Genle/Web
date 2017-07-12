@@ -142,6 +142,11 @@ footer ul > li > a {
     margin-top:2%;
 }
 
+/*deals css*/
+.deals-tile{
+    margin-top:2%;
+}
+
 @media screen and (max-width: 600px) {
     .topbar ul > li, .topbar ul > li.right{
         float: none;
