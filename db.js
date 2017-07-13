@@ -110,7 +110,7 @@ exports.checkLoginInfo = (email, password) => {
                 }
 
                 if (User) {
-                    if (User.email == str(email) && User.password) {
+                    if (User.email == email && User.password) {
                         resolve({message: "OK"});
                     }
                 } else {
