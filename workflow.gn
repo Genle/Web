@@ -3,11 +3,11 @@
 
     "login":{
       "frontend": "done",
-      "backend": "almostDone"
+      "backend": "done"
     },
     "signup":{
       "frontend": "done",
-      "backend": ["almostDone", "password encryption"]
+      "backend": ["done", "password encryption"]
     },
     "pizzas":{
       "frontend":"done",
@@ -25,7 +25,7 @@
       "frontend":"done",
       "backend": ["not started","database model", "create pizza"]
     },
-    "Database model":"not started",
+    "Database model":"Done",
     "micro service": "not started"
   },
 
@@ -33,7 +33,23 @@
     "users":{
       "email":"String",
       "password": "hashPassword"
-    }
+    },
+    "pizza":{
+      "id":"Number",
+      "title":"String",
+      "description": {},
+      "price":"Number",
+      "type": [0,1],
+      "status":"String",
+      "email":"String"
+    },
+    "ingredients":{
+      "crust":[],
+      "sauce":[],
+      "toppings":[],
+      "cheese":[]
+    },
+    "orders":[]
 
   }
 }

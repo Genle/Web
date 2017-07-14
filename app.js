@@ -4,13 +4,19 @@
     const helpers = require('./lib/helpers');
     const bodyParser = require('body-parser');
     const bcrypt = require('bcrypt');
+    const morgan = require('morgan');
     const app = express();
     const db = require("./db");
+    require('dotenv').config();
+
 
     app.use(bodyParser.json()); // support json encoded bodies
     app.use(bodyParser.urlencoded({
         extended: true
     })); // support encoded bodies
+
+    app.set('supersecret', process.env.SECRET);
+    app.use(morgan('dev'));
 
 
 
@@ -63,38 +69,25 @@
         console.log("email of body: ", req.body.email);
         console.log("email of password: ", req.body.password);
 
-        bcrypt.hash(req.body.password, 10, function(err, hash) {
-            // Store hash in database
-            console.log(hash);
-            let saveUser = db.createUser(req.body.email, hash );
-            saveUser.then(
-                function (message) {
-                    console.log("Inside then");
-                    res.send(message);
-                }
-            ).catch(
-                function (err) {
-                    console.log("Inside catch");
-                    res.send(err);
-                }
-            )
-        });
+        let saveUser = db.createUser(req.body.email, req.body.password );
+        saveUser.then(
+            function (message) {
+                res.send(message);
+            }
+        ).catch(
+            function (err) {
+                res.send(err);
+            }
+        );
 
     });
 
     app.post('/api/login', (req, res) => {
         let login = db.checkLoginInfo(req.body.email, req.body.password);
 
-        bcrypt.compare(req.body.password, hash, function(err, res) {
-            if(res) {
-                // Passwords match
-            } else {
-                // Passwords don't match
-            }
-        })
+
         login.then(
             function (message) {
-
                 res.send(message);
             }
         ).catch(function (err) {

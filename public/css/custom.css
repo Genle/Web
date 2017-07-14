@@ -1,10 +1,29 @@
 /*app2 assignment web programming custom css */
+@font-face {
+    font-family: orderpizza;
+    src: url(../fonts/OrderPizza.ttf);
+}
+@font-face {
+    font-family: favorite;
+    src: url(../fonts/favorite.ttf);
+}
+@font-face {
+    font-family: mouth;
+    src: url(../fonts/mouth.TTF);
+}
+@font-face {
+    font-family: knits;
+    src: url(../fonts/knits.ttf);
+}
+
 body {
     /*color: red !important;*/
     margin: 0;
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    font-family: knits;
+
 }
 main {
     flex: 1 0 auto;
@@ -128,6 +147,9 @@ footer ul > li > a {
     color: white;
 }
 
+.btn{
+    font-family:knits !important;
+}
 /*login part*/
 .login-form{
     margin-top: 10%;
@@ -145,7 +167,28 @@ footer ul > li > a {
 /*deals css*/
 .deals-tile{
     margin-top:2%;
+    /*font-family: knits;*/
 }
+
+
+nav{
+    font-size: medium;
+}
+/*create new order*/
+.custom-title {
+    /*font-family: knits;*/
+}
+
+.parallax-like-pic{
+    position: absolute;
+    top:15%;
+    left:38%;
+}
+.btn-new-order{
+    margin-top: 10%;
+    margin-bottom:0;
+}
+
 
 @media screen and (max-width: 600px) {
     .topbar ul > li, .topbar ul > li.right{

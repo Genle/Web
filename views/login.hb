@@ -55,7 +55,7 @@
     if(ajax.readyState === XMLHttpRequest.DONE && ajax.status === 200) {
             data = JSON.parse(ajax.responseText);
         console.log(data);
-            if (data.message == "OK"){
+            if (data.message == "true"){
                 window.location.replace('http://localhost:9876/');
             }
         }

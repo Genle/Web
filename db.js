@@ -1,4 +1,5 @@
 let mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
 require('dotenv').config();
 
 mongoose.Promise = global.Promise;
@@ -20,24 +21,47 @@ let user = new Schema({
 	password: String
 });
 
+//pizza premade or customed by the user
 let pizza = new Schema({
     url: String,
     title: String,
-    description: [],
+    description: {
+        crust:String,
+        sauce:String,
+        toppings:[],
+        cheese:[]
+    },
     price: Number,
-    type: Number
+    type: Number,
+    status: String,
+    email: String
 
 });
+
+//title and description are custom and the other assigned
+
+//all existed ingredients
+let ingredients = new Schema({
+    crust:[],
+    sauce:[],
+    toppings:[],
+    cheese:[]
+});
+
+//order made by a user
+let order = new Schema({
+    email:String,
+    date:{ type: Date, default: Date.now },
+    pizzas: []
+});
+
+
 
 
 let User = mongoose.model('User', user);
 let Pizza = mongoose.model('Pizza', pizza);
-
-function getUserInfo() {
-	UserModel.findOne(function(err, user) {
-		console.log(user);
-	})
-}
+let Ingredients = mongoose.model('Ingredients', ingredients);
+let Order = mongoose.model('Order', order);
 
 
 exports.createPizza = (pizza) => {
@@ -47,7 +71,9 @@ exports.createPizza = (pizza) => {
             title: pizza.title,
             description:pizza.description,
             price:pizza.price,
-            type:pizza.type
+            type:pizza.type,
+            status: pizza.status,
+            email: pizza.email
         });
 
         newPizza.save((err)=>{
@@ -84,17 +110,30 @@ exports.getCustomPizza = () => {
 exports.createUser = (email, password) => {
 
     return new Promise((resolve, reject) => {
-        let user = new User({
-            email: email,
-            password: password
+        bcrypt.hash(password, 10, function(err, hash) {
+            // Store hash in database
+            console.log(hash);
+
+            if(hash){
+                let user = new User({
+                    email: email,
+                    password: hash
+                });
+                user.save((err) => {
+                    if (err) {
+                        reject(err);
+                    }
+                    resolve({message: "User saved"});
+                });
+            }else{
+                reject({message:"Password has couldn't be created"});
+            }
+
+
         });
 
-        user.save((err) => {
-            if (err) {
-                reject(err);
-            }
-            resolve({message: "User saved"});
-        });
+
+
 
 	});
 
@@ -102,16 +141,25 @@ exports.createUser = (email, password) => {
 exports.checkLoginInfo = (email, password) => {
     return new Promise((resolve, reject) => {
             User.findOne({
-                "email": email,
-                "password": password
+                "email": email
             }, function (err, User) {
                 if (err) {
                     reject(err);
                 }
 
                 if (User) {
-                    if (User.email == email && User.password) {
-                        resolve({message: "OK"});
+                    if (User.email == email) {
+                        console.log("here: ", User.password);
+                        bcrypt.compare( password, User.password, function(err, res) {
+                            if(res) {
+                                // Passwords match
+                                resolve({message: "true"});
+                            } else {
+                                // Passwords don't match
+                                reject({message: "false"});
+                            }
+                        })
+
                     }
                 } else {
                     resolve({message: "user not found"});

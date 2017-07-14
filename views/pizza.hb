@@ -110,8 +110,10 @@
         let outterDiv = document.createElement('div');
         outterDiv.className = 'row';
 
+        let counter = 0;
+        let id = "id"
         for(let i=0; i<deals.length; i++){
-            let elem = createDealInfo(deals[i]);
+            let elem = createDealInfo(deals[i], id+counter );
             if( i%3 == 0 && i!=0){
                 container.appendChild(outterDiv);
                 outterDiv = document.createElement('div');
@@ -122,13 +124,14 @@
                 outterDiv.appendChild(elem);
 
             }
+            counter++;
 
         }
 
         container.appendChild(outterDiv);
     }
 
-    function createDealInfo (deal) {
+    function createDealInfo (deal, id) {
 
         let span = document.createElement('span');
         span.innerHTML = deal.price;
@@ -167,12 +170,15 @@
 
         let divMain = document.createElement('div');
         divMain.className = 'col s12 m4';
+        console.log(id);
+        divMain.id = id;
         divMain.appendChild(divFirstRow);
         divMain.appendChild(divSecondRow);
 
         let button = document.createElement('button');
         button.className = "btn red darken-2 col s12 m12";
         button.innerHTML = "Order";
+        button.onclick = orderPizza;
         divMain.appendChild(button);
 
 //        outterDiv.appendChild(divMain);
@@ -196,7 +202,58 @@
         ajax.send();
     }
 
+    function getOrderInfo () {
+        let mainDiv = document.getElementById('id0');
+        let elements = mainDiv.getElementsByClassName('center-align');
+        let titleAndPrice = null;
+        let description = null;
+        for(let i=0;i<elements.length;i++){
+            if(elements[i].tagName == 'H5'){
+                titleAndPrice = separateTitleToPrice(elements[i].innerText);
+            }else{
+                description = elements[i].innerText;
+            }
+        }
+
+        return {title:titleAndPrice[0], price:titleAndPrice[1], description:description};
+
+    }
+
+    function separateTitleToPrice(element){
+        let titleAndPrice = element.split(" ");
+        let result = "";
+        let length = titleAndPrice.length;
+        for (key in titleAndPrice){
+            if(key != (length-1)){
+                console.log("key: ",key);
+                if(key < length-2){
+                    result += titleAndPrice[key] + " ";
+                }else{
+                    result += titleAndPrice[key];
+                }
+            }
+        }
+
+        return [result, titleAndPrice[length-1]]
+
+    }
+
+    function orderPizza () {
+        let orderInfo = getOrderInfo();
+
+        //check if he is logged in
+            //if he is send him to checkout
+
+            //if he is not save object to localstorage and send him to log in page
+
+        let xhttp = new XMLHttpRequest();
+
+
+    }
+
     getPreMadePizzas();
+
+
 
 
 </script>
