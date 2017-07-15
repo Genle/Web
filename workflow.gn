@@ -23,7 +23,7 @@
     },
     "new order":{
       "frontend":"done",
-      "backend": ["not started","database model", "create pizza"]
+      "backend": ["almost done","database model", "create pizza"]
     },
     "Database model":"Done",
     "micro service": "not started"
@@ -38,6 +38,7 @@
       "id":"Number",
       "title":"String",
       "description": {},
+
       "price":"Number",
       "type": [0,1],
       "status":"String",

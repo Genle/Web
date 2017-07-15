@@ -53,7 +53,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+         <div class="row">
             <div class="col s12 m4">
                 <div class="row">
                     <img class="col s12 m8 offset-m2"
@@ -99,7 +99,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> 
 
     </div>
 </div>
@@ -252,6 +252,18 @@
     }
 
     getPreMadePizzas();
+
+    //test javascript code
+    function testJs(){
+        let object = {
+            crust:[],
+            topping:[]
+        };
+        object.crust.push("thin", "thick");
+        console.log(object.crust);
+    }
+
+    testJs();
 
 
 
