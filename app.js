@@ -148,6 +148,33 @@
         })
     });
 
+    app.post('/api/populate/ingredients', (req, res)=>{
+        // console.log(req.body);
+        if(req.body){
+            let ingredients = {
+            crust:req.body.crust.split("."),
+            sauce:req.body.sauce.split("."),
+            toppings: req.body.toppings.split("."),
+            cheese: req.body.cheese.split(".")
+
+            }
+
+            let result = db.populateIngredients(ingredients);
+
+            result.then(
+                function(data){
+                    res.send(data);
+                }
+            ).catch(
+                function(err){
+                    res.send(err);
+                }
+            )
+        }else{
+            res.send({"message":"missing  parameter"});
+        }
+    });
+
     // app.get('/ingredient', (req, res) => {
     //     console.log("hello");
     //     console.log(users);

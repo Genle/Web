@@ -63,18 +63,31 @@ let Pizza = mongoose.model('Pizza', pizza);
 let Ingredients = mongoose.model('Ingredients', ingredients);
 let Order = mongoose.model('Order', order);
 
+exports.populateIngredients = (ingredients) => {
+    return new Promise((resolve, reject)=>{
+        let newIngredients = new Ingredients(ingredients);
 
+        newIngredients.save((err)=>{
+            if(err){
+                reject(err);
+            }
+            resolve({message: "Ingredients saved"});
+        })
+    });
+}
 exports.createPizza = (pizza) => {
     return new Promise((resolve,reject)=>{
-        let newPizza = new Pizza({
-            url: pizza.url,
-            title: pizza.title,
-            description:pizza.description,
-            price:pizza.price,
-            type:pizza.type,
-            status: pizza.status,
-            email: pizza.email
-        });
+        // let newPizza = new Pizza({
+        //     url: pizza.url,
+        //     title: pizza.title,
+        //     description:pizza.description,
+        //     price:pizza.price,
+        //     type:pizza.type,
+        //     status: pizza.status,
+        //     email: pizza.email
+        // });
+
+        let newPizza = new Pizza(pizza);
 
         newPizza.save((err)=>{
             if(err){
