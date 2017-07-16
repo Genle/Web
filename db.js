@@ -33,7 +33,7 @@ let pizza = new Schema({
     },
     price: Number,
     type: Number,
-    status: String,
+    status: {type:String,default:""},
     email: String
 
 });
@@ -63,6 +63,40 @@ let Pizza = mongoose.model('Pizza', pizza);
 let Ingredients = mongoose.model('Ingredients', ingredients);
 let Order = mongoose.model('Order', order);
 
+exports.getIngredients = () => {
+    return new Promise((resolve,reject) => {
+        Ingredients.find({}, (err,ingredients) => {
+            if(err) reject(err);
+            resolve(ingredients);
+        });
+    });
+};
+
+exports.getPizza = (query) =>{
+    // console.log("query from getPIzza: ",query);
+    return new Promise((resolve,reject)=>{
+       Pizza.findOne(query, (err,Pizza)=>{
+           // console.log("Pizzzza:", Pizza);
+          if(err) reject(err);
+          resolve(Pizza);
+       });
+    });
+};
+
+exports.saveOrder = (order) => {
+    return new Promise((resolve, reject) => {
+       let newOrder = new Order(order);
+
+       newOrder.save((err) => {
+           if(err){
+               console.log("error from save: ", err);
+               reject(err);
+           }
+           resolve({message:"Order saved"});
+       })
+    });
+};
+
 exports.populateIngredients = (ingredients) => {
     return new Promise((resolve, reject)=>{
         let newIngredients = new Ingredients(ingredients);
@@ -74,19 +108,10 @@ exports.populateIngredients = (ingredients) => {
             resolve({message: "Ingredients saved"});
         })
     });
-}
+};
+
 exports.createPizza = (pizza) => {
     return new Promise((resolve,reject)=>{
-        // let newPizza = new Pizza({
-        //     url: pizza.url,
-        //     title: pizza.title,
-        //     description:pizza.description,
-        //     price:pizza.price,
-        //     type:pizza.type,
-        //     status: pizza.status,
-        //     email: pizza.email
-        // });
-
         let newPizza = new Pizza(pizza);
 
         newPizza.save((err)=>{

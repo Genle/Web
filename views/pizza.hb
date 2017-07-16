@@ -6,100 +6,54 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="col s12 m4">
-                <div class="row">
-                    <img class="col s12 m8 offset-m2"
-                         src="https://vignette3.wikia.nocookie.net/teenage-mutant-ninja-turtles-2012-series/images/f/fd/Pizza_trad_pepperoni.png/revision/latest?cb=20161106191944">
-                </div>
-                <div class="row">
-                    <div class="col s12 m12">
-                        <h5 class="center-align">Pizza peperroni</h5>
-                        <p class="center-align">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                            exercitation ullamco laboris nisi </p>
-                        <button class="btn red darken-2 col s12 m12">Order</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col s12 m4">
-                <div class="row">
-                    <img class="col s12 m8 offset-m2"
-                         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPDqhXVbS3q1_T56W7VC61GvwzJg6oTJQA2gLtiOe8O6Tdf3xv">
-                </div>
-                <div class="row">
-                    <div class="col s12 m12">
-                        <h5 class="center-align">Pizza peperroni</h5>
-                        <p class="center-align">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                            exercitation ullamco laboris nisi</p>
-                        <button class="btn red darken-2 col s12 m12">Order</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col s12 m4">
-                <div class="row">
-                    <img class="col s12 m8 offset-m2"
-                         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPDqhXVbS3q1_T56W7VC61GvwzJg6oTJQA2gLtiOe8O6Tdf3xv">
-                </div>
-                <div class="row">
-                    <div class="col s12 m12">
-                        <h5 class="center-align">Pizza peperroni</h5>
-                        <p class="center-align">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                            exercitation ullamco laboris nisi </p>
-                        <button class="btn red darken-2 col s12 m12">Order</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-         <div class="row">
-            <div class="col s12 m4">
-                <div class="row">
-                    <img class="col s12 m8 offset-m2"
-                         src="https://vignette3.wikia.nocookie.net/teenage-mutant-ninja-turtles-2012-series/images/f/fd/Pizza_trad_pepperoni.png/revision/latest?cb=20161106191944">
-                </div>
-                <div class="row">
-                    <div class="col s12 m12">
-                        <h5 class="center-align">Pizza peperroni</h5>
-                        <p class="center-align">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                            exercitation ullamco laboris nisi </p>
-                        <button class="btn red darken-2 col s12 m12">Order</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col s12 m4">
-                <div class="row">
-                    <img class="col s12 m8 offset-m2"
-                         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPDqhXVbS3q1_T56W7VC61GvwzJg6oTJQA2gLtiOe8O6Tdf3xv">
-                </div>
-                <div class="row">
-                    <div class="col s12 m12">
-                        <h5 class="center-align">Pizza peperroni</h5>
-                        <p class="center-align">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                            exercitation ullamco laboris nisi</p>
-                        <button class="btn red darken-2 col s12 m12">Order</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col s12 m4">
-                <div class="row">
-                    <img class="col s12 m8 offset-m2"
-                         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPDqhXVbS3q1_T56W7VC61GvwzJg6oTJQA2gLtiOe8O6Tdf3xv">
-                </div>
-                <div class="row">
-                    <div class="col s12 m12">
-                        <h5 class="center-align">Pizza peperroni</h5>
-                        <p class="center-align">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                            exercitation ullamco laboris nisi </p>
-                        <button class="btn red darken-2 col s12 m12">Order</button>
-                    </div>
-                </div>
-            </div>
-        </div> 
+
+         <!--<div class="row">-->
+            <!--<div class="col s12 m4">-->
+                <!--<div class="row">-->
+                    <!--<img class="col s12 m8 offset-m2"-->
+                         <!--src="https://vignette3.wikia.nocookie.net/teenage-mutant-ninja-turtles-2012-series/images/f/fd/Pizza_trad_pepperoni.png/revision/latest?cb=20161106191944">-->
+                <!--</div>-->
+                <!--<div class="row">-->
+                    <!--<div class="col s12 m12">-->
+                        <!--<h5 class="center-align">Pizza peperroni</h5>-->
+                        <!--<p class="center-align">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod-->
+                            <!--tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud-->
+                            <!--exercitation ullamco laboris nisi </p>-->
+                        <!--<button class="btn red darken-2 col s12 m12">Order</button>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="col s12 m4">-->
+                <!--<div class="row">-->
+                    <!--<img class="col s12 m8 offset-m2"-->
+                         <!--src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPDqhXVbS3q1_T56W7VC61GvwzJg6oTJQA2gLtiOe8O6Tdf3xv">-->
+                <!--</div>-->
+                <!--<div class="row">-->
+                    <!--<div class="col s12 m12">-->
+                        <!--<h5 class="center-align">Pizza peperroni</h5>-->
+                        <!--<p class="center-align">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod-->
+                            <!--tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud-->
+                            <!--exercitation ullamco laboris nisi</p>-->
+                        <!--<button class="btn red darken-2 col s12 m12">Order</button>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="col s12 m4">-->
+                <!--<div class="row">-->
+                    <!--<img class="col s12 m8 offset-m2"-->
+                         <!--src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPDqhXVbS3q1_T56W7VC61GvwzJg6oTJQA2gLtiOe8O6Tdf3xv">-->
+                <!--</div>-->
+                <!--<div class="row">-->
+                    <!--<div class="col s12 m12">-->
+                        <!--<h5 class="center-align">Pizza peperroni</h5>-->
+                        <!--<p class="center-align">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod-->
+                            <!--tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud-->
+                            <!--exercitation ullamco laboris nisi </p>-->
+                        <!--<button class="btn red darken-2 col s12 m12">Order</button>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div> -->
 
     </div>
 </div>
@@ -147,9 +101,11 @@
         let p = document.createElement('p');
         p.className = 'center-align';
         p.innerHTML = "";
-        for(let i=0; i<deal.description.length; i++){
-            p.innerHTML += " "+deal.description[i];
-        }
+//        console.log(deal.description);
+        p.innerHTML += " "+deal.description['crust'];
+        p.innerHTML += " "+deal.description['sauce'];
+        p.innerHTML += " "+deal.description['toppings'];
+        p.innerHTML += " "+deal.description['cheese'];
 
         let divInfo = document.createElement('div');
         divInfo.className = 'col s12 m12';
@@ -170,7 +126,7 @@
 
         let divMain = document.createElement('div');
         divMain.className = 'col s12 m4';
-        console.log(id);
+//        console.log(id);
         divMain.id = id;
         divMain.appendChild(divFirstRow);
         divMain.appendChild(divSecondRow);
@@ -202,8 +158,9 @@
         ajax.send();
     }
 
-    function getOrderInfo () {
-        let mainDiv = document.getElementById('id0');
+    function getOrderInfo (buttonContext) {
+        let btnParentId = buttonContext.parentNode.id;
+        let mainDiv = document.getElementById(btnParentId);
         let elements = mainDiv.getElementsByClassName('center-align');
         let titleAndPrice = null;
         let description = null;
@@ -223,9 +180,10 @@
         let titleAndPrice = element.split(" ");
         let result = "";
         let length = titleAndPrice.length;
+//        console.log(length);
         for (key in titleAndPrice){
             if(key != (length-1)){
-                console.log("key: ",key);
+//                console.log("key: ",key);
                 if(key < length-2){
                     result += titleAndPrice[key] + " ";
                 }else{
@@ -239,14 +197,34 @@
     }
 
     function orderPizza () {
-        let orderInfo = getOrderInfo();
-
+        let orderInfo = getOrderInfo(this);
         //check if he is logged in
+        console.log(JSON.stringify(orderInfo));
+        if(localStorage.email){
+
+            let ajax = new XMLHttpRequest();
+            ajax.onreadystatechange = function(){
+                if(ajax.readyState === XMLHttpRequest.DONE && ajax.status === 200) {
+                    data = JSON.parse(ajax.responseText);
+                    if(data.message){
+                        window.location.replace("http://localhost:9876/reorder");
+                    }
+                }
+            };
+
+            let params = `title=${orderInfo.title}&description=${orderInfo.description}&price=${orderInfo.price}`;
+            ajax.open("POST", "http://localhost:9876/api/create/order", true)
+            ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            ajax.send(params);
+        }else{
+            window.localStorage.setItem("object", JSON.stringify(orderInfo));
+            window.location.replace("http://localhost:9876/login");
+        }
+
             //if he is send him to checkout
 
             //if he is not save object to localstorage and send him to log in page
 
-        let xhttp = new XMLHttpRequest();
 
 
     }
@@ -263,7 +241,8 @@
         console.log(object.crust);
     }
 
-    testJs();
+//    testJs();
+//    orderPizza();
 
 
 

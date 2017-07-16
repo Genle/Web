@@ -56,15 +56,19 @@
             data = JSON.parse(ajax.responseText);
         console.log(data);
             if (data.message == "true"){
-                window.location.replace('http://localhost:9876/');
+                if(window.localStorage.object){
+                    window.location.replace("http://localhost:9876/re-order");
+                }else{
+                    window.location.replace("http://localhost:9876/");
+                }
             }
         }
     };
     ajax.open("POST", "http://localhost:9876/api/login", true);
-    
+
     ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     ajax.send(params);
-    
+
 
 
     return false;

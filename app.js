@@ -102,7 +102,8 @@
             title: req.body.title,
             description: [], //not yet found
             price: req.body.price,
-            type: 1
+            type: 1,
+            email:req.body.email
         };
 
         let pizza = db.createPizza(newPizza);
@@ -117,13 +118,18 @@
     });
 
     app.get('/pizzas', (req,res)=>{
-        let desc = "Champignon Peperonni Cheese anana";
+        let desc = "Thin Bechamel pepperoni chedar".split(" ");
+        let description = {crust:desc[0], sauce:desc[1], toppings:[desc[2]], cheese:[desc[3]]};
+        console.log("description from create pizza: ",description);
+
         let newPizza = {
             url: "https://cdn.pixabay.com/photo/2016/04/09/09/22/pizza-1317699_960_720.jpg",
             title: "Pizza Slice",
-            description: desc.split(" "), //not yet found
+            description: description, //not yet found
             price: 10,
-            type: 0
+            type: 0,
+            status: "Delivered",
+            email:"test@gmail.com"
         };
 
         let pizza = db.createPizza(newPizza);
@@ -142,6 +148,7 @@
     app.get('/api/premade/pizzas', (req,res)=>{
         let pizzas = db.getPreMadePizza();
         pizzas.then(function(data){
+            // console.log("data from premade pizza: ",data);
             res.send(data);
         }).catch(function(err){
             res.send(err);
@@ -157,7 +164,7 @@
             toppings: req.body.toppings.split("."),
             cheese: req.body.cheese.split(".")
 
-            }
+            };
 
             let result = db.populateIngredients(ingredients);
 
@@ -173,6 +180,51 @@
         }else{
             res.send({"message":"missing  parameter"});
         }
+    });
+
+    app.post('/api/create/order', (req,res) => {
+        let descArray = req.body.description.split(" ");
+        let queryInfo = {title:req.body.title, 'description.crust': descArray[0],'description.sauce': descArray[1],'description.toppings': [descArray[2]] ,'description.cheese':[descArray[3]],price:req.body.price};
+        // console.log(queryInfo);
+
+        let pizza = db.getPizza(queryInfo);
+
+        pizza.then(
+            function(data){
+                //save order
+                let order = {email:'test@gmail.com', pizzas:[{url:data.url,title:data.title,description:data.description,type:data.type,status:data.status, price:data.price,email:data.email}]}
+                let orderObject = db.saveOrder(order);
+
+                orderObject.then(
+                    function(data){
+                        res.send(data);
+                    }
+                ).catch(function (err) {
+                    res.send(err);
+
+                })
+            }
+        ).catch(
+            function(err){
+                res.send(err);
+            }
+        )
+    });
+
+
+    app.get("/api/ingredients", (req,res)=>{
+       let ingredients = db.getIngredients();
+
+       ingredients.then(
+           function(data){
+               // console.l
+               res.send(data);
+           }
+       ).catch(
+           function (err) {
+               res.send(err);
+           }
+       )
     });
 
     // app.get('/ingredient', (req, res) => {
