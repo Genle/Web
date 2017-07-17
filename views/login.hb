@@ -57,6 +57,12 @@
         console.log(data);
             if (data.message == "true"){
                 if(window.localStorage.object){
+                    let orderInfo = JSON.parse(window.localStorage.object);
+                    window.localStorage.removeItem('object');
+                    let params = `title=${orderInfo.title}&description=${orderInfo.description}&price=${orderInfo.price}`;
+                    ajax.open("POST", "http://localhost:9876/api/create/order", true);
+                    ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                    ajax.send(params);
                     window.location.replace("http://localhost:9876/re-order");
                 }else{
                     window.location.replace("http://localhost:9876/");

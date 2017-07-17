@@ -50,7 +50,19 @@
     });
 
     app.get('/re-order', (req, res) => {
-        res.render('reorder');
+        let orders = db.getOrders();
+        let delay = 2;
+        orders.then(
+            function(data){
+                let delay = 2;
+                res.render('reorder',{data:data,delay:delay});
+            }
+        ).catch(
+            function(err){
+                res.render('reorder',{data});
+            }
+        )
+
     });
 
     app.get('/new-order', (req, res) => {
@@ -123,13 +135,13 @@
         console.log("description from create pizza: ",description);
 
         let newPizza = {
-            url: "https://cdn.pixabay.com/photo/2016/04/09/09/22/pizza-1317699_960_720.jpg",
-            title: "Pizza Slice",
+            url: "https://cdn.pixabay.com/photo/2016/04/09/09/22/pizza-1317699_960_721.jpg",
+            title: "Pizza mushroom",
             description: description, //not yet found
             price: 10,
             type: 0,
-            status: "Delivered",
-            email:"test@gmail.com"
+            status: "In route",
+            email:"french@gmail.com"
         };
 
         let pizza = db.createPizza(newPizza);

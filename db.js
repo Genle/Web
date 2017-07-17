@@ -63,6 +63,15 @@ let Pizza = mongoose.model('Pizza', pizza);
 let Ingredients = mongoose.model('Ingredients', ingredients);
 let Order = mongoose.model('Order', order);
 
+exports.getOrders = () => {
+    return new Promise((resolve,reject) => {
+       Order.find({}, (err, orders) => {
+          if(err) reject(err);
+          resolve(orders);
+       });
+    });
+};
+
 exports.getIngredients = () => {
     return new Promise((resolve,reject) => {
         Ingredients.find({}, (err,ingredients) => {
