@@ -53,6 +53,9 @@
         ajax.send(params);
     }
 
+     
+
+
     function createOptions (data) {
         let form = document.getElementById("newPizza");
         let ingredients = JSON.parse(data);
@@ -162,9 +165,10 @@
         divBtn.className = 'btn-new-order';
 
         let inputbtn = document.createElement('input');
-        inputbtn.type = "submit";
+        // inputbtn.type = "submit";
         inputbtn.className = 'hoverable col s12 m4 btn offset-m4 red darken-2';
         inputbtn.value = 'Order custom Pizza';
+        inputbtn.onclick = getOrderInfo;
 
         divBtn.appendChild(inputbtn);
         divBtnRow.appendChild(divBtn);
@@ -176,7 +180,7 @@
         divDown.appendChild(divCheese);
         form.appendChild(divDown);
         form.appendChild(divBtnRow);
-        console.log(form);
+        // console.log(form);
 
         $(document).ready(function(){
             $('select').material_select();
@@ -186,15 +190,50 @@
 
     }
 
+     function getOrderInfo () {
+        let selects = document.getElementsByTagName('select');
+        let description = "";
+
+        for(let key=0; key<selects.length; key++){
+            if(selects[key].selectedOptions[0].parentNode.id != "toppings" || selects[key].selectedOptions[0].parentNode.id == "cheese"){
+                description += selects[key].selectedOptions[0].text + " ";
+            }
+            if(selects[key].selectedOptions[0].parentNode.id == "toppings" ) {
+                let options = selects[key].selectedOptions;
+                for (let i=1; i<options.length; i++){
+                    console.log("toppings: ", options[i].text);
+                    description += options[i].text + " ";
+                }
+            }else if(selects[key].selectedOptions[0].parentNode.id == "cheese"){
+                    let options = selects[key].selectedOptions;
+                    for (let i=1; i<options.length; i++){
+                        // description += options[i].text + " ";
+                        console.log(i +": "+options[i].text);
+                        if(i<options.length-1){
+                            console.log("index: ", i);
+                            description += options[i].text + " ";
+                        }else{
+                            console.log("index: ", i);
+                            description += options[i].text;
+                        }
+                    }
+            }
+        
+        }
+        console.log("description: ", description.split(" "));
+
+        // return {title:titleAndPrice[0], price:titleAndPrice[1], description:description};
+
+    }
+    
     function getIngredients(){
         let ajax = new XMLHttpRequest();
 
         ajax.onreadystatechange = function(){
             if(ajax.readyState === XMLHttpRequest.DONE && ajax.status === 200) {
                 // data = JSON.parse(ajax.responseText);
-                console.log(ajax.responseText);
+                // console.log(ajax.responseText);
                 createOptions(ajax.responseText);
-
             }
         }
         ajax.open("GET", "http://localhost:9876/api/ingredients");
@@ -202,6 +241,41 @@
     }
 
     getIngredients();
+
+  
+    // getOrderInfo();
+
+    function orderPizza () {
+        let orderInfo = getOrderInfo(this);
+        //check if he is logged in
+        console.log(JSON.stringify(orderInfo));
+        if(localStorage.email){
+
+            let ajax = new XMLHttpRequest();
+            ajax.onreadystatechange = function(){
+                if(ajax.readyState === XMLHttpRequest.DONE && ajax.status === 200) {
+                    data = JSON.parse(ajax.responseText);
+                    if(data.message){
+                        window.location.replace("http://localhost:9876/reorder");
+                    }
+                }
+            };
+
+        let params = `title=${orderInfo.title}&description=${orderInfo.description}&price=${orderInfo.price}`;
+        ajax.open("POST", "http://localhost:9876/api/create/order", true);
+        ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        ajax.send(params);
+    }else{
+        window.localStorage.setItem("object", JSON.stringify(orderInfo));
+        window.location.replace("http://localhost:9876/login");
+    }
+
+        //if he is send him to checkout
+
+        //if he is not save object to localstorage and send him to log in page
+
+
+    }
 
 
 </script>

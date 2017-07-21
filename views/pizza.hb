@@ -9,7 +9,7 @@
 </div>
 
 <script>
-    function addDeals (deals) {
+    function addPizzas (deals) {
         let container = document.getElementById("content");
         let outterDiv = document.createElement('div');
         outterDiv.className = 'row';
@@ -51,11 +51,12 @@
         let p = document.createElement('p');
         p.className = 'center-align';
         p.innerHTML = "";
-//        console.log(deal.description);
+       console.log(deal.description);
         p.innerHTML += " "+deal.description['crust'];
         p.innerHTML += " "+deal.description['sauce'];
         p.innerHTML += " "+deal.description['toppings'];
         p.innerHTML += " "+deal.description['cheese'];
+        // p.innerHTML += deal.description.toString();
 
         let divInfo = document.createElement('div');
         divInfo.className = 'col s12 m12';
@@ -98,7 +99,7 @@
         ajax.onreadystatechange = function () {
             if(ajax.readyState === XMLHttpRequest.DONE && ajax.status === 200) {
                 data = JSON.parse(ajax.responseText);
-                addDeals(data);
+                addPizzas(data);
 
             }
         };
@@ -174,7 +175,6 @@
             //if he is send him to checkout
 
             //if he is not save object to localstorage and send him to log in page
-
 
 
     }
