@@ -1,6 +1,7 @@
 let config = {};
 config['environement'] = 'dev';
-config['materialize'] = {
+config['type'] = 'static';
+config['materialize']['dynamic'] = {
     cssSrc: 'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css',
     jsSrc: 'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js',
     fontSrc: 'https://fonts.googleapis.com/icon?family=Material+Icons'
@@ -12,7 +13,7 @@ config['materialize']['static'] = {
     fontSrc: 'https://fonts.googleapis.com/icon?family=Material+Icons'
 }
 
-config['jquery'] = {
+config['jquery']['dynamic'] = {
     src: 'https://code.jquery.com/jquery-3.2.1.min.js',
     integrity:'sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=',
     crossorigin: 'anonymous'

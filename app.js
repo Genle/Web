@@ -6,12 +6,9 @@
     const bcrypt = require('bcrypt');
     const morgan = require('morgan');
     const app = express();
-    const util = require('util');
     const db = require("./db");
     require('dotenv').config();
 
-    //other constant variables that are not require
-    const setTimoutPromise = util.promisify(setTimeout);
 
 
     app.use(bodyParser.json()); // support json encoded bodies
