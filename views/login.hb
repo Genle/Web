@@ -54,7 +54,7 @@
     ajax.onreadystatechange = function () {
     if(ajax.readyState === XMLHttpRequest.DONE && ajax.status === 200) {
             data = JSON.parse(ajax.responseText);
-        console.log(data);
+    
             if (data.message == "true"){
                 if(window.localStorage.object){
                     let orderInfo = JSON.parse(window.localStorage.object);
@@ -63,9 +63,11 @@
                     ajax.open("POST", "http://localhost:9876/api/create/order", true);
                     ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                     ajax.send(params);
+                    window.localStorage.setItem("email", email);                    
                     window.location.replace("http://localhost:9876/re-order");
                 }else{
                     window.location.replace("http://localhost:9876/");
+                    window.localStorage.setItem("email", email);
                 }
             }
         }

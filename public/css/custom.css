@@ -175,6 +175,21 @@ nav{
     font-size: medium;
 }
 /*create new order*/
+.new-order{
+    background-image: url("/static/img/bgpizza.jpg"); 
+    background-repeat: no-repeat;
+       /* Full height */
+     border: 1px solid black; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-size: cover;
+
+}
+
+.custom-btn {
+    margin-bottom:0;
+}
 
 
 .parallax-like-pic{
@@ -222,5 +237,15 @@ nav{
         /* visibility: hidden; */
         display: none;
     }
-   
+/*create new order*/
+    .new-order {
+         background-image: url("/static/img/mobilebg.jpg");  
+        background-repeat: no-repeat;
+        /* Full height */
+        /* border: 1px solid black;  */
+
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-size: cover;
+    }
 }

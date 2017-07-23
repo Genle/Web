@@ -6,11 +6,21 @@ config['materialize'] = {
     fontSrc: 'https://fonts.googleapis.com/icon?family=Material+Icons'
 };
 
+config['materialize']['static'] = {
+    cssSrc: '/static/css/materialize.min.css',
+    jsSrc: '/static/js/materialize.min.js',
+    fontSrc: 'https://fonts.googleapis.com/icon?family=Material+Icons'
+}
+
 config['jquery'] = {
     src: 'https://code.jquery.com/jquery-3.2.1.min.js',
     integrity:'sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=',
     crossorigin: 'anonymous'
 };
+
+config['jquery']['static'] = {
+    src: '/static/js/jquery.min.js'
+}
 
 
 

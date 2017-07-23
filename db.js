@@ -26,6 +26,7 @@ let pizza = new Schema({
     url: String,
     title: String,
     description: {
+        size:String,
         crust:String,
         sauce:String,
         toppings:[],

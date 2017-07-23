@@ -51,11 +51,11 @@
         let p = document.createElement('p');
         p.className = 'center-align';
         p.innerHTML = "";
-       console.log(deal.description);
-        p.innerHTML += " "+deal.description['crust'];
-        p.innerHTML += " "+deal.description['sauce'];
-        p.innerHTML += " "+deal.description['toppings'];
-        p.innerHTML += " "+deal.description['cheese'];
+        p.innerHTML += deal.description['size'] + "-";
+        p.innerHTML += deal.description['crust'] + "-";
+        p.innerHTML += deal.description['sauce'] + "-";
+        p.innerHTML += deal.description['toppings'].toString() + "-";
+        p.innerHTML += deal.description['cheese'].toString();
         // p.innerHTML += deal.description.toString();
 
         let divInfo = document.createElement('div');
@@ -119,7 +119,7 @@
             if(elements[i].tagName == 'H5'){
                 titleAndPrice = separateTitleToPrice(elements[i].innerText);
             }else{
-                description = elements[i].innerText;
+                description = elements[i].innerText.split("-");
             }
         }
 
@@ -151,14 +151,16 @@
         let orderInfo = getOrderInfo(this);
         //check if he is logged in
         console.log(JSON.stringify(orderInfo));
-        if(localStorage.email){
-
+         if(localStorage.email){
+ 
             let ajax = new XMLHttpRequest();
             ajax.onreadystatechange = function(){
                 if(ajax.readyState === XMLHttpRequest.DONE && ajax.status === 200) {
                     data = JSON.parse(ajax.responseText);
                     if(data.message){
-                        window.location.replace("http://localhost:9876/reorder");
+                        window.location.replace("http://localhost:9876/re-order");
+                    }else{
+                        console.log("ORDER PIZZA");
                     }
                 }
             };
@@ -170,7 +172,7 @@
         }else{
             window.localStorage.setItem("object", JSON.stringify(orderInfo));
             window.location.replace("http://localhost:9876/login");
-        }
+        } 
 
             //if he is send him to checkout
 
@@ -183,15 +185,12 @@
 
     //test javascript code
     function testJs(){
-        let object = {
-            crust:[],
-            topping:[]
-        };
-        object.crust.push("thin", "thick");
-        console.log(object.crust);
+
+       let arr = "test";
+       console.log("arr to string: ", arr.split("-"));
     }
 
-//    testJs();
+     {{!-- testJs();  --}}
 //    orderPizza();
 
 
