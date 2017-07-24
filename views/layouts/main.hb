@@ -2,6 +2,7 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title></title>
+
         {{headerLink}}
     </head>
     <body>
@@ -12,6 +13,7 @@
         </header>
         <main>
             {{{body}}}
+            {{getScript "main"}}
         </main>
         <footer>
             {{> footer}}
