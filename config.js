@@ -36,7 +36,15 @@ config['env'] ={
         neworder: '/new-order',
         login:'/login',
         signup:'/signup',
-        custom: '/static/css/custom.css'
+        custom: '/static/css/custom.css',
+        mainJs: '/static/js/main.js',
+        reorderJs: '/static/js/reorder.js',
+        neworderJs: '/static/js/neworder.js',
+        dealsJs: '/static/js/deals.js',
+        pizzaJs: '/static/js/pizza.js',
+        loginJs: '/static/js/login.js',
+        signupJs: '/static/js/signup.js'
+
 
     },
     prod:{
@@ -47,7 +55,15 @@ config['env'] ={
         neworder: 'new-order',
         login:'login',
         signup:'signup',
-        custom: 'static/css/custom.css'
+        custom: 'static/css/custom.css',
+        mainJs: 'static/js/main.js',
+        reorderJs: 'static/js/reorder.js',
+        neworderJs: 'static/js/neworder.js',
+        dealsJs: 'static/js/deals.js',
+        pizzaJs: 'static/js/pizza.js',
+        loginJs: 'static/js/login.js',
+        signupJs: 'static/js/signup.js'
+
     }
 }
 
