@@ -117,15 +117,7 @@ function orderCustomPizza() {
             }
         };
 
-        let params = `
-                        title = ${
-                            orderInfo.title
-                        } & description = ${
-                            orderInfo.description
-                        } & price = ${
-                            orderInfo.price
-                        }
-                        `;
+        let params = `title=${orderInfo.title}&description=${orderInfo.description}&price=${orderInfo.price}`;
         ajax.open("POST", `api/create/custom/pizza`, true);
         ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         ajax.send(params);

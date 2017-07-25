@@ -42,7 +42,7 @@ function valite() {
       }
     }
   };
-  ajax.open("POST", `/api/login`, true);
+  ajax.open("POST", `api/login`, true);
 
   ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   ajax.send(params);

@@ -25,9 +25,9 @@ function addPizzas(deals) {
 }
 
 function createDealInfo(deal, id) {
-
+    let discount = Math.floor((Math.random() * 25) + 10)/100;
     let span = document.createElement('span');
-    span.innerHTML = deal.price;
+    span.innerHTML = deal.price-discount;
     //       span.innerHTML = deal.price;
 
     let h5 = document.createElement('h5');
@@ -148,7 +148,9 @@ function orderPizza() {
         ajax.onreadystatechange = function() {
             if (ajax.readyState === XMLHttpRequest.DONE && ajax.status === 200) {
                 data = JSON.parse(ajax.responseText);
-                if (data.message) {
+console.log(data);               
+ if (data.message) {
+		    console.log(data.message);
                     window.location.replace(`${config['env'][environment]['reorder']}`);
                 } else {
                     console.log("ORDER PIZZA");
