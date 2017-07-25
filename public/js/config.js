@@ -1,5 +1,5 @@
 let config = {};
-config['environement'] = 'dev';
+config['environment'] = 'dev';
 config['type'] = 'static';
 config['materialize'] = {
     'dynamic': {
@@ -66,5 +66,7 @@ config['env'] = {
 
     }
 }
+
+let environment = config.environment;
 
 // module.exports = config;

@@ -21,15 +21,15 @@
             <tbody>
             {{#if data}}
                 {{#each data}}
+                    <tr id={{@index}}>
                     {{#each this.pizzas}}
-                        <tr>
                             <td>{{this.title}}</td>
                             <td>{{getString this.description}}</td>
                             <td>{{this.price}}</td>
                             <td>{{this.status}}</td>
                     {{/each}}
                         <td>{{getDateFormat this.date}}</td>
-                            {{tableBtn this.date}}                        
+                            {{tableBtn this.date @index}}                        
                     </tr>
                 {{/each}}
             {{/if}}

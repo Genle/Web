@@ -29,123 +29,7 @@ main {
     flex: 1 0 auto;
 }
 
-.topbar ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-}
 
-.topbar ul > li {
-    float: left;
-}
-
-.topbar > ul > li.right {
-    float: right;
-}
-
-.topbar ul > li > a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding-top: 14px;
-    padding-bottom: 14px;
-    padding-right: 16px;
-    padding-left: 16px;
-    text-decoration: none;
-}
-
-.topbar ul > li > a:hover:not(.active){
-    background-color: #111;
-}
-.topbar ul > li > a.active {
-    background-color: #4CAF50;
-}
-
-footer ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    text-align: center;
-
-}
-
-
-footer ul > li {
-    display: inline-block;
-    
-
-}
-
-footer ul > li > a {
-    color: white;
-    padding-right: 16px;
-    padding-left: 16px;
-    text-decoration: none;
-}
-
-
-.footer {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    padding: 1rem;
-    background-color: #333;
-}
-
-#treeRender .root{
-    text-decoration: none;
-    
-}
-
-.root {
-    text-align: center;
-    text-decoration: none;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-right: 5px;
-    padding-left: 5px;
-    width: 100px;
-    border: 1px solid #141B41;
-    border-radius: 50px;
-    background: #141B41;
-    color: white;
-}
-
-.hasChild {
-    text-align: center;
-    margin-top: 5px;
-    margin-bottom:5px;
-    text-decoration: none;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    /*padding-right: 5px;
-    padding-left: 5px;*/
-    width: 100px;
-    border: 1px solid #306BAC;
-    border-radius: 50px;
-    background: #306BAC;
-    color: white;
-}
-
-.child {
-    text-align: center;
-    margin-top: 5px;
-    margin-bottom:5px;
-    text-decoration: none;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    /*padding-right: 5px;*/
-    /*padding-left: 5px;*/
-    width: 100px;
-    border: 1px solid #918EF4;
-    /*border-radius: 50px;*/
-    background: #918EF4;
-    color: white;
-}
 
 .btn{
     font-family:knits !important;
@@ -176,7 +60,7 @@ nav{
 }
 /*create new order*/
 .new-order{
-    background-image: url("/static/img/bgpizza.jpg"); 
+    background-image: url("../img/bgpizza.jpg"); 
     background-repeat: no-repeat;
        /* Full height */
      border: 1px solid black; 
@@ -239,7 +123,7 @@ nav{
     }
 /*create new order*/
     .new-order {
-         background-image: url("/static/img/mobilebg.jpg");  
+         background-image: url("../img/mobilebg.jpg");  
         background-repeat: no-repeat;
         /* Full height */
         /* border: 1px solid black;  */
