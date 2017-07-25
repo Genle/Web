@@ -92,7 +92,7 @@ function getPreMadePizzas() {
 
 		}
 	};
-	ajax.open("GET", `${config['env'][environment]['baseUrl']}/api/premade/pizzas`, true);
+	ajax.open("GET", `api/premade/pizzas`, true);
 
 	//        ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	ajax.send();

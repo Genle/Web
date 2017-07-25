@@ -4,9 +4,12 @@
     });
 }());
 
-let params = `crust=Thin.Flatbread.Focacciat.Thick&sauce=Pesto.Bechamel.Salsa.BBQ Sauce.Hummus.Pumpkin Pizza Sauce.Pumpkin and Beet "Marinara".Tapenade.Carrot-Harissa Sauce&toppings=Anchovies.Onions.Pepperoni.Beef.Peppers.Bacon.Pesto.olives.Black.Pineapple.Chicken.Extra cheese.Sausage.Spinach.Ham.Mushrooms&cheese=Mozzarella.Provolone.Cheddar.Gouda.Goat.Gruyere.Ricotta`;
+console.log('environment:', environment);
+//var  params = `crust=Thin.Flatbread.Focacciat.Thick&sauce=Pesto.Bechamel.Salsa.BBQ Sauce.Hummus.Pumpkin Pizza Sauce.Pumpkin and Beet "Marinara".Tapenade.Carrot-Harissa Sauce&toppings=Anchovies.Onions.Pepperoni.Beef.Peppers.Bacon.Pesto.olives.Black.Pineapple.Chicken.Extra cheese.Sausage.Spinach.Ham.Mushrooms&cheese=Mozzarella.Provolone.Cheddar.Gouda.Goat.Gruyere.Ricotta`;
 
 function populateIngredients() {
+    var  params = `crust=Thin.Flatbread.Focacciat.Thick&sauce=Pesto.Bechamel.Salsa.BBQ Sauce.Hummus.Pumpkin Pizza Sauce.Pumpkin and Beet "Marinara".Tapenade.Carrot-Harissa Sauce&toppings=Anchovies.Onions.Pepperoni.Beef.Peppers.Bacon.Pesto.olives.Black.Pineapple.Chicken.Extra cheese.Sausage.Spinach.Ham.Mushrooms&cheese=Mozzarella.Provolone.Cheddar.Gouda.Goat.Gruyere.Ricotta`;
+
     let ajax = new XMLHttpRequest();
 
     ajax.onreadystatechange = function() {
@@ -15,7 +18,8 @@ function populateIngredients() {
             console.log(ajax.responseText);
         }
     }
-    ajax.open("POST", `${config['env'][environment]['baseUrl']}/api/populate/ingredients`, true)
+    ajax.open("POST", `${config['env'][environment]['baseUrl']}/api/populate/ingredients`, true);
+console.log('string connection : ', `${config['env'][environment]['baseUrl']}/api/populate/ingredients`);
 
 
     ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -108,7 +112,7 @@ function orderCustomPizza() {
                 data = JSON.parse(ajax.responseText);
                 console.log("response data: ", data);
                 if (data.message) {
-                    window.location.replace(`${config['env'][environment]['baseUrl']}/re-order`);
+                    window.location.replace(`${config['env'][environment]['reorder']}`);
                 }
             }
         };
@@ -136,6 +140,8 @@ function orderCustomPizza() {
     return false;
 
 }
+
+
 
 $(document).ready(function() {
     $('select').material_select();

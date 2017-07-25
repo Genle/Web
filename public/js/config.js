@@ -1,6 +1,6 @@
 let config = {};
-config['environment'] = 'dev';
-config['type'] = 'static';
+config['environment'] = 'prod';
+config['type'] = 'dynamic';
 config['materialize'] = {
     'dynamic': {
         cssSrc: 'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css',

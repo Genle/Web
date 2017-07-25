@@ -1,6 +1,6 @@
 let config = {};
-config['environment'] = 'dev';
-config['type'] = 'static';
+config['environment'] = 'prod';
+config['type'] = 'dynamic';
 config['materialize'] = {
     'dynamic': {
         cssSrc: 'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css',
@@ -30,7 +30,7 @@ config['jquery'] = {
 config['env'] = {
     dev: {
         baseUrl: 'http://localhost:9876',
-        home: '/',
+        home: '/pizza',
         deals: '/deals',
         reorder: '/re-order',
         neworder: '/new-order',
@@ -50,7 +50,7 @@ config['env'] = {
     },
     prod: {
         baseUrl: '45.55.65.103/joseph',
-        home: '/',
+        home: 'pizza',
         deals: 'deals',
         reorder: 're-order',
         neworder: 'new-order',

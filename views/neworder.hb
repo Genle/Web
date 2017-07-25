@@ -1,22 +1,7 @@
-<!--<div class="new-order">-->
-    <!--<img src="/static/img/pizzabg.jpg" alt="" class="responsive-img">-->
-<!--</div>-->
+    
 
 <div class="new-order">
-    <!--<div id="populate">-->
-        <!--<button class="btn" onclick="populateIngredients()">populate</button>-->
-    <!--</div>-->
-    {{!-- <div class="valign-wrapper">
-         <img class="parallax-like-pic" width="300" height="300" src="/static/img/pepperoni.png" alt=""> 
-    </div> --}}
-    {{!-- <div class="row">
-        <img class="bgpizza" src="/static/img/bgpizza.jpg" alt="" width="100%" height="74%">
-    </div> --}}
-    {{!-- <div class="row">
-        <h5 class="white-text">Create your custom pizza from different ingredients</h5>
-    </div> --}}
-    
-    <div class="row">
+<div class="row">
 
     <div class="col s12 m4 white-text">
         <div class="row" >
@@ -90,7 +75,6 @@
                     <input id="form-submit" class="custom-btn btn col s12 m12 red darken-2" onclick="orderCustomPizza()" type="submit" name="custom" value="Order custom pizza">
                 </div>
             </form>
-            {{!-- <button class="btn" onclick="getOrderInfo();">Get Order info</button> --}}
         {{/if}}
     </div>
     </div>

@@ -8,7 +8,7 @@ function checkLogin() {
 				window.location = this.href;
 			} else {
 				window.localStorage.setItem("page", "reorder");
-				window.location.replace(`${config['env'][environment]['baseUrl']}/login`);
+				window.location.replace(`login`);
 			}
 		},
 		false);

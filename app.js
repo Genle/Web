@@ -37,6 +37,10 @@
         res.render('pizza');
     });
 
+    app.get('/pizza', (req, res) => {
+    	res.render('pizza');
+    });
+
     app.get('/about', (req, res) => {
         res.render('about');
     });
@@ -168,14 +172,14 @@
         let description = {
             size: 'medium',
             crust: 'flatbread',
-            sauce: 'Bechamel',
-            toppings: ['pepperoni, onions'],
-            cheese: ['chedar,mozarella']
+            sauce: 'pesto',
+            toppings: ['pepperoni'],
+            cheese: ['mozarella']
         };
 
         let newPizza = {
-            url: "/static/img/pizza3.jpg",
-            title: "Pizza Pepperoni onions",
+            url: "static/img/pizza4.png",
+            title: "Pizza Pepperoni",
             description: description, //not yet found
             price: 10,
             type: 0,
@@ -199,7 +203,7 @@
     app.post('/api/create/custom/pizza', (req, res) => {
         let newDescription = JSON.parse(req.body.description);
         let newPizza = {
-            url: "",
+            url: "static/img/pizza2.jpg",
             title: req.body.title,
             description: newDescription,
             price: req.body.price,
