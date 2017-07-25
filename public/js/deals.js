@@ -158,8 +158,8 @@ console.log(data);
             }
         };
 
-        let params = `title=${orderInfo.title}&description=${orderInfo.description}&price=${orderInfo.price}`;
-        ajax.open("POST", "api/create/order", true);
+        let params = `title=${orderInfo.title}&description=${orderInfo.description}&price=${orderInfo.price}&status="active"`;
+        ajax.open("POST", "api/create/deals/order", true);
         ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         ajax.send(params);
     } else {

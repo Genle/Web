@@ -297,7 +297,7 @@
     app.post('/api/create/order', (req, res) => {
         console.log("description from things: ", req.body.description);
         let descArray = req.body.description.split(",");
-        console.log(descArray.length);
+        console.log('precio: ', req.body.price);
         let queryInfo = {
             title: req.body.title,
             'description.size': descArray[0],
@@ -344,6 +344,53 @@
                 res.send(err);
             }
         )
+    });
+
+    app.post('/api/create/deals/order', (req,res) => {
+	console.log(req.body);        
+let newDescription = JSON.parse(req.body.description);
+        let newPizza = {
+            url: "static/img/pizza2.jpg",
+            title: req.body.title,
+            description: newDescription,
+            price: req.body.price,
+            type: 1,
+            status: req.body.status,
+            email: req.body.email
+        };
+
+        let pizza = db.createPizza(newPizza);
+
+        pizza.then(
+            function(message) {
+                console.log(message);
+                let order = {
+                    email: newPizza.email,
+                    pizzas: [{
+                        url: newPizza.url,
+                        title: newPizza.title,
+                        description: newPizza.description,
+                        type: 1,
+                        status: newPizza.status,
+                        price: newPizza.price,
+                        email: newPizza.email
+                    }]
+                }
+                let orderObject = db.saveOrder(order);
+
+                orderObject.then(
+                    function(data) {
+                        console.log('Data: ', data);
+                        res.send(data);
+                    }
+                ).catch(function(err) {
+                    res.send(err);
+
+                })
+            }
+        ).catch(function(err) {
+            res.send(err);
+        });
     });
 
 

@@ -29,7 +29,7 @@ function orderPizza(id) {
             if (ajax.readyState === XMLHttpRequest.DONE && ajax.status === 200) {
                 data = JSON.parse(ajax.responseText);
                 if (data.message) {
-                    window.location.replace(`${config['env'][environment]['baseUrl']}/re-order`);
+                    window.location.replace(`${config['env'][environment]['reorder']}`);
                 } else {
                     console.log("ORDER PIZZA");
                 }
@@ -50,4 +50,13 @@ function orderPizza(id) {
     //if he is not save object to localstorage and send him to log in page
 
 
+}
+
+function cancelOrder(id){
+let idCell = id.split('-')[0];
+    let targetRow = document.getElementById(idCell);
+    // console.log('targe: ', targetRow);
+    let orderInfo = getOrderInfo(targetRow);
+    if (localStorage.email) {
+	
 }
