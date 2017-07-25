@@ -38,7 +38,7 @@
     });
 
     app.get('/pizza', (req, res) => {
-    	res.render('pizza');
+        res.render('pizza');
     });
 
     app.get('/about', (req, res) => {
@@ -250,6 +250,15 @@
         let pizzas = db.getPreMadePizza();
         pizzas.then(function(data) {
             // console.log("data from premade pizza: ",data);
+            res.send(data);
+        }).catch(function(err) {
+            res.send(err);
+        })
+    });
+
+    app.get('/api/custom/pizzas', (req, res) => {
+        let pizzas = db.getCustomPizza();
+        pizzas.then(function(data) {
             res.send(data);
         }).catch(function(err) {
             res.send(err);

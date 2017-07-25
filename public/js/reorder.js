@@ -37,12 +37,12 @@ function orderPizza(id) {
         };
 
         let params = `title=${orderInfo.title}&description=${orderInfo.description}&price=${orderInfo.price}`;
-        ajax.open("POST", `${config['env'][environment]['baseUrl']}/api/create/order`, true);
+        ajax.open("POST", `api/create/order`, true);
         ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         ajax.send(params);
     } else {
         window.localStorage.setItem("object", JSON.stringify(orderInfo));
-        window.location.replace(`${config['env'][environment]['baseUrl']}/login`);
+        window.location.replace(`${config['env'][environment]['login']}`);
     }
 
     //if he is send him to checkout

@@ -28,7 +28,7 @@ function valite() {
 			form.reset();
 		}
 	};
-	ajax.open("POST", `${config['env'][environment]['baseUrl']}/api/create/user`, true);
+	ajax.open("POST", `api/create/user`, true);
 
 	ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	ajax.send(params);

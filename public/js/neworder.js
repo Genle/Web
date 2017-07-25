@@ -8,7 +8,7 @@ console.log('environment:', environment);
 //var  params = `crust=Thin.Flatbread.Focacciat.Thick&sauce=Pesto.Bechamel.Salsa.BBQ Sauce.Hummus.Pumpkin Pizza Sauce.Pumpkin and Beet "Marinara".Tapenade.Carrot-Harissa Sauce&toppings=Anchovies.Onions.Pepperoni.Beef.Peppers.Bacon.Pesto.olives.Black.Pineapple.Chicken.Extra cheese.Sausage.Spinach.Ham.Mushrooms&cheese=Mozzarella.Provolone.Cheddar.Gouda.Goat.Gruyere.Ricotta`;
 
 function populateIngredients() {
-    var  params = `crust=Thin.Flatbread.Focacciat.Thick&sauce=Pesto.Bechamel.Salsa.BBQ Sauce.Hummus.Pumpkin Pizza Sauce.Pumpkin and Beet "Marinara".Tapenade.Carrot-Harissa Sauce&toppings=Anchovies.Onions.Pepperoni.Beef.Peppers.Bacon.Pesto.olives.Black.Pineapple.Chicken.Extra cheese.Sausage.Spinach.Ham.Mushrooms&cheese=Mozzarella.Provolone.Cheddar.Gouda.Goat.Gruyere.Ricotta`;
+    var params = `crust=Thin.Flatbread.Focacciat.Thick&sauce=Pesto.Bechamel.Salsa.BBQ Sauce.Hummus.Pumpkin Pizza Sauce.Pumpkin and Beet "Marinara".Tapenade.Carrot-Harissa Sauce&toppings=Anchovies.Onions.Pepperoni.Beef.Peppers.Bacon.Pesto.olives.Black.Pineapple.Chicken.Extra cheese.Sausage.Spinach.Ham.Mushrooms&cheese=Mozzarella.Provolone.Cheddar.Gouda.Goat.Gruyere.Ricotta`;
 
     let ajax = new XMLHttpRequest();
 
@@ -18,8 +18,8 @@ function populateIngredients() {
             console.log(ajax.responseText);
         }
     }
-    ajax.open("POST", `${config['env'][environment]['baseUrl']}/api/populate/ingredients`, true);
-console.log('string connection : ', `${config['env'][environment]['baseUrl']}/api/populate/ingredients`);
+    ajax.open("POST", `api/populate/ingredients`, true);
+    console.log('string connection : ', `api/populate/ingredients`);
 
 
     ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -126,7 +126,7 @@ function orderCustomPizza() {
                             orderInfo.price
                         }
                         `;
-        ajax.open("POST", `${config['env'][environment]['baseUrl']}/api/create/custom/pizza`, true);
+        ajax.open("POST", `api/create/custom/pizza`, true);
         ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         ajax.send(params);
     } else {
