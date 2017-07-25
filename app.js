@@ -295,9 +295,7 @@
     });
 
     app.post('/api/create/order', (req, res) => {
-        console.log("description from things: ", req.body.description);
         let descArray = req.body.description.split(",");
-        console.log('precio: ', req.body.price);
         let queryInfo = {
             title: req.body.title,
             'description.size': descArray[0],
@@ -347,8 +345,8 @@
     });
 
     app.post('/api/create/deals/order', (req,res) => {
-	console.log(req.body);        
-let newDescription = JSON.parse(req.body.description);
+	    console.log(req.body);        
+        let newDescription = JSON.parse(req.body.description);
         let newPizza = {
             url: "static/img/pizza2.jpg",
             title: req.body.title,
@@ -391,6 +389,36 @@ let newDescription = JSON.parse(req.body.description);
         ).catch(function(err) {
             res.send(err);
         });
+    });
+
+    app.post('/api/cancel/order', (req, res) => {
+        let descArray = req.body.description.split(",");
+        let query = {
+            title: req.body.title,
+            'description.size': descArray[0],
+            'description.crust': descArray[1],
+            'description.sauce': descArray[2],
+            'description.toppings': descArray[3].split(","),
+            'description.cheese': descArray[4].split(","),
+            price: req.body.price
+        };
+
+
+        let cancelOrder = db.cancelOrder(query);
+
+        cancelOrder.then(
+            function (doc) {
+                if(doc){
+                    res.send({message: "Order Cancelled", status: "OK"});
+                }
+            }
+        ).catch (
+            function (err) {
+                if(err){
+                    res.send(err);
+                }
+            }
+        )
     });
 
 

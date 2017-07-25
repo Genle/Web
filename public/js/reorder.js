@@ -53,10 +53,27 @@ function orderPizza(id) {
 }
 
 function cancelOrder(id){
-let idCell = id.split('-')[0];
+    let idCell = id.split('-')[0];
     let targetRow = document.getElementById(idCell);
     // console.log('targe: ', targetRow);
     let orderInfo = getOrderInfo(targetRow);
     if (localStorage.email) {
+
+        let ajax = new XMLHttpRequest();
+        ajax.onreadystatechange = function() {
+            if (ajax.readyState === XMLHttpRequest.DONE && ajax.status === 200) {
+                data = JSON.parse(ajax.responseText);
+                if (data.message) {
+                    window.location.replace(`${config['env'][environment]['reorder']}`);
+                } else {
+                    alert("Order not saved");
+                }
+            }
+        };
+        let params = `title=${orderInfo.title}&description=${orderInfo.description}&price=${orderInfo.price}&status=cancelled`;
+        ajax.open("POST", `api/cancel/order`, true);
+        ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        ajax.send(params);
+    }
 	
 }

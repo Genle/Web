@@ -64,6 +64,17 @@ let Pizza = mongoose.model('Pizza', pizza);
 let Ingredients = mongoose.model('Ingredients', ingredients);
 let Order = mongoose.model('Order', order);
 
+exports.cancelOrder = (query) => {
+    return new Promise((resolve, reject) => {
+        Order.findOneAndUpdate(query, {status: 'cancelled'}, {upsert:true}, function(err, doc){
+            if (err) reject(err);
+
+            resolve(doc);
+        
+        })
+    })
+}
+
 exports.getOrders = () => {
     return new Promise((resolve,reject) => {
        Order.find({}, (err, orders) => {
